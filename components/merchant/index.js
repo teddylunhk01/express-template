@@ -14,9 +14,8 @@ router.post('/', async (req, res, next) => {
             amount
         }
         let token = jwt.sign(payload, process.env.SECRET_KEY)
-        let qrcodeImage = await QRCode.toDataURL(token)
         res.json({
-            qrcodeImage
+            qrcodeImage: await QRCode.toDataURL(token)
         })
     } catch (err) {
         res.status(err.status || 500)

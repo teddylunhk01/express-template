@@ -1,5 +1,5 @@
 import index from '../components/index'
-import qrCode from '../components/payment'
+import qrCode from '../components/merchant'
 
 const Routes = (app) => {
     app.use('/', index)
