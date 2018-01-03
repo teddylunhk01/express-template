@@ -4,6 +4,8 @@ import path from 'path'
 import logger from 'morgan'
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
+import { sendError, checkPostBody } from '../utils/errorHandler'
+
 
 const middlewares = (app) => {
   // view engine setup
@@ -14,6 +16,7 @@ const middlewares = (app) => {
   // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
   app.use(logger('dev'))
   app.use(bodyParser.json())
+  app.use(checkPostBody)
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(cookieParser())
   app.use(express.static(path.join(__dirname, 'public')))

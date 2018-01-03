@@ -2,7 +2,7 @@ import express from 'express'
 import QRCode from 'qrcode'
 import uuid from 'uuid/v4'
 import jwt from 'jsonwebtoken'
-import {sendError} from '../../utils/errorChecker'
+import {sendError} from '../../utils/errorHandler'
 require('dotenv').config()
 const router = express.Router()
 
