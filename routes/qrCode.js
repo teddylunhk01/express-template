@@ -1,17 +1,17 @@
-var express = require('express')
-var jwt = require('jsonwebtoken')
-var QRCode = require('qrcode')
-var uuid = require('uuid/v4')
-var router = express.Router()
+import express from 'express'
+import jwt from 'jsonwebtoken'
+import QRCode from 'qrcode'
+import uuid from 'uuid/v4'
+let router = express.Router()
 
-router.post('/', function(req, res, next) {
+router.post('/', (req, res, next) => {
     const { name, amount } = req.body
-    var payload = {
+    let payload = {
         name,
         merchantID: uuid(),
         amount
     }
-    var token = jwt.sign(payload, 'SECRET_KEY')
+    let token = jwt.sign(payload, 'SECRET_KEY')
     QRCode.toDataURL(token, function(err, url){
         res.send(url)
     })
