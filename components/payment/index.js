@@ -10,7 +10,7 @@ router.post('/', async (req, res, next) => {
         const { name, amount } = req.body
         let payload = {
             name,
-            merchantID: 'asfd',
+            merchantID: uuid(),
             amount
         }
         let token = jwt.sign(payload, process.env.SECRET_KEY)
